@@ -1,26 +1,50 @@
 // all data load api function
-const allDataLodeApi = async (allData) => {
-  const url = `https://openapi.programming-hero.com/api/news/category/01`;
+const allCatagoriDataLodApi = async (data) => {
+  const url = `https://openapi.programming-hero.com/api/news/categories`;
   const res = await fetch(url);
-  const dataLod = await res.json();
-  const data = dataLod.data;
-  return data;
+  const allData = await res.json();
+  const allCatagori = allData.data.news_category;
+  return allCatagori;
+  // console.log(allCatagori);
 };
+
+// const allDataLodeApi = async (allData) => {
+//   const url = `https://openapi.programming-hero.com/api/news/category/01`;
+//   const res = await fetch(url);
+//   const dataLod = await res.json();
+//   const data = dataLod.data;
+//   return data;
+// };
 const allIdLodData = async (id) => {
   const url = `https://openapi.programming-hero.com/api/news/${id}`;
   const res = await fetch(url);
   const data = await res.json();
   return data;
 };
-
-// single data function
-const allDataLode = async () => {
-  const allData = await allDataLodeApi();
-  allData.forEach((data) => {
-    creadDainameckCard(data);
-    // console.log(data);
+const catagorisData = async (catagorisId) => {
+  const allCatagoriDAta = await allCatagoriDataLodApi();
+  const id = document.getElementById("catagori-container");
+  allCatagoriDAta.forEach((data) => {
+    creatData(data, id);
   });
 };
+
+const creatData = async (da, id) => {
+  console.log(da);
+  id.innerText = da.category_id;
+};
+catagorisData();
+//  <li class="mb-md-3 mb-xl-0"> 1</li>
+
+// single data function
+const allDataLode = async (allData) => {
+  // const allData = await allDataLodeApi();
+  allData.forEach((data) => {
+    // creadDainameckCard(data);
+  });
+};
+allDataLode();
+
 const detailsText = (details) => {
   if (details.length > 550) {
     const detail = details.slice(0, 500) + "...";
@@ -29,7 +53,7 @@ const detailsText = (details) => {
     return details;
   }
 };
-// creat all card dainamic and disply  my website
+creat all card dainamic and disply  my website
 const creadDainameckCard = (data) => {
   // console.log(data);
   const { author, details, thumbnail_url, title, _id, total_view } = data;
@@ -104,8 +128,10 @@ const imgThamenlClick = async (id) => {
   const data = idAllData.data[0];
   console.log(data);
   const { author } = data;
+  const modalBody = document.getElementById("model-body");
+  const modalTaitle = document.getElementById("modal-taitle");
   console.log(author);
 
-  // console.log(id);
+//   // console.log(id);
 };
 allDataLode();

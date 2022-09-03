@@ -74,20 +74,11 @@
     <!-- header Ends  hear  -->
 
     <main class="container">
+      <section id="list"></section>
       <!-- catagori list starts hear  -->
       <section>
         <div class="catagori-list-container">
-          <ul class="d-flex justify-content-between align-items-center">
-            <li class="mb-md-3 mb-xl-0">Home</li>
-            <li class="mb-md-3 mb-xl-0">Breaking news</li>
-            <li class="mb-md-3 mb-xl-0">Regular news</li>
-            <li class="mb-md-3 mb-xl-0">International news</li>
-            <li class="mb-md-3 mb-xl-0">Sports</li>
-            <li class="mb-md-3 mb-xl-0" class="active">Entertainment</li>
-            <li class="mb-md-3 mb-xl-0">Culture</li>
-            <li class="mb-md-3 mb-xl-0">Arts</li>
-            <li class="mb-md-3 mb-xl-0">All news</li>
-          </ul>
+          <ul onclick="" id="catagori-container"></ul>
         </div>
       </section>
       <!-- catagori list Ends hear  -->
@@ -95,7 +86,9 @@
       <!-- catagori list count starts hear  -->
       <section>
         <div class="catagori-list-cound-container py-3 ps-3 bg-white">
-          <h5>4 items found for category Entertainment</h5>
+          <h5>
+            <span id="catagori"></span> items found for category Entertainment
+          </h5>
         </div>
       </section>
       <!-- catagori list count Ends hear  -->
@@ -148,7 +141,7 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="blog-modal">Modal title</h5>
+                <div id="modal-taitle"></div>
                 <button
                   type="button"
                   class="btn-close"
@@ -156,7 +149,7 @@
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">...</div>
+              <div id="model-body" class="modal-body">...</div>
               <div class="modal-footer">
                 <button
                   type="button"
@@ -164,9 +157,6 @@
                   data-bs-dismiss="modal"
                 >
                   Close
-                </button>
-                <button type="button" class="btn btn-primary">
-                  Understood
                 </button>
               </div>
             </div>
@@ -182,7 +172,7 @@
     <!-- footer Ends  hear  -->
 
     <!-- All script link  -->
-    <script src="main-js/utilite.js"></script>
+    <!-- <script src="main-js/utilite.js"></script> -->
     <script src="main-js/main.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
