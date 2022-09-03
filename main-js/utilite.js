@@ -103,6 +103,7 @@ const allDataLoat = async () => {
 
 // cata gori list add dainamick
 const catagoriList = (data) => {
+  console.log(data);
   const { category_id, category_name } = data;
   const catagoriContainer = document.getElementById("catagori-container");
   const catagoriList = document.createElement("div");
