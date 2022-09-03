@@ -4,7 +4,6 @@ const allCatagoriDataLodApi = async (data) => {
   const res = await fetch(url);
   const allData = await res.json();
   const allCatagori = allData.data.news_category;
-  console.log();
   return allCatagori;
 };
 
@@ -15,8 +14,18 @@ const catagoriAllData = async (id, modelId) => {
   return data.data;
   //
 };
+// apner function
+const spner = (bullin) => {
+  const sharpContainer = document.getElementById("spner-container");
+  if (bullin === true) {
+    sharpContainer.classList.remove("d-none");
+  } else {
+    sharpContainer.classList.add("d-none");
+  }
+};
 
 const allDataLoat = async () => {
+  spner(true);
   const allData = await allCatagoriDataLodApi();
   const cardContainer = document.getElementById("all-card-container");
   cardContainer.innerHTML = ``;
@@ -34,14 +43,17 @@ const catagoriList = (data) => {
   <li id="${category_id}" class="mb-md-3 mb-xl-0" onclick="listId('${category_id}')">${category_name}</li>
   `;
   catagoriContainer.appendChild(catagoriList);
+  spner(false);
 };
 // catagori list click get id
 const listId = async (id) => {
+  spner(true);
   const catagoriData = await catagoriAllData(id);
   const catagoriDataLength = catagoriData.length;
   const dataWorning = document.getElementById("data-worning");
   if (catagoriDataLength === 0) {
     dataWorning.classList.remove("d-none");
+    spner(false);
   } else {
     dataWorning.classList.add("d-none");
   }
@@ -49,6 +61,8 @@ const listId = async (id) => {
   catagoriItem.innerText = catagoriDataLength;
   const cardContainer = document.getElementById("all-card-container");
   cardContainer.innerHTML = ``;
+  console.log(catagoriData);
+
   catagoriData.forEach((data) => {
     creadDainameckCard(data);
   });
@@ -83,7 +97,7 @@ const creadDainameckCard = (data) => {
       class="col-12 col-lg-3 card-content-left d-flex justify-content-center align-items-center"
       >
       <img class="rounded-2" onclick="imgThamenlClick('${_id}')" src="${
-    thumbnail_url ? thumbnail_url : NoData
+    thumbnail_url ? thumbnail_url : noFoundImg
   }" alt="" data-bs-toggle="modal"
       data-bs-target="#blog-modal-bodey" />
       </div>
@@ -139,8 +153,10 @@ const creadDainameckCard = (data) => {
   </div>
   `;
   cardContainer.appendChild(cardWraper);
+  spner(false);
 };
 const imgThamenlClick = async (id) => {
+  spner(true);
   const url = `https://openapi.programming-hero.com/api/news/${id}`;
   const res = await fetch(url);
   const allData = await res.json();
@@ -163,6 +179,7 @@ const imgThamenlClick = async (id) => {
   modalBody.innerHTML = `
   <p>${details}</p>
   `;
+  spner(false);
 };
 allDataLoat();
-catagoriAllData("01");
+// catagoriAllData();
