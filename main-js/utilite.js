@@ -6,6 +6,13 @@ const allDataLodeApi = async (allData) => {
   const data = dataLod.data;
   return data;
 };
+const allIdLodData = async (id) => {
+  const url = `https://openapi.programming-hero.com/api/news/${id}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  return data;
+};
+
 // single data function
 const allDataLode = async () => {
   const allData = await allDataLodeApi();
@@ -15,7 +22,6 @@ const allDataLode = async () => {
   });
 };
 const detailsText = (details) => {
-  console.log(details.length);
   if (details.length > 550) {
     const detail = details.slice(0, 500) + "...";
     return detail;
@@ -26,18 +32,8 @@ const detailsText = (details) => {
 // creat all card dainamic and disply  my website
 const creadDainameckCard = (data) => {
   // console.log(data);
-  const {
-    author,
-    details,
-    thumbnail_url,
-    title,
-    category_id,
-    image_url,
-    _id,
-    total_view,
-  } = data;
-  const para =
-    "lsdskdkf sldlsfs sdfsdlfjs sdlflsdlf jkjemlkjl hoavmkvha fhsknfj  ofaw ";
+  const { author, details, thumbnail_url, title, _id, total_view } = data;
+  // console.log(_id);
   const { name, published_date, img } = author;
   const date = published_date.slice(0, 10);
   const cardContainer = document.getElementById("all-card-container");
@@ -49,7 +45,8 @@ const creadDainameckCard = (data) => {
             <div
             class="col-12 col-lg-3 card-content-left d-flex justify-content-center align-items-center"
             >
-            <img class="rounded-2" src="${thumbnail_url}" alt="" />
+            <img class="rounded-2" onclick="imgThamenlClick('${_id}')" src="${thumbnail_url}" alt="" data-bs-toggle="modal"
+            data-bs-target="#blog-modal-bodey" />
             </div>
             <div class="col-12 col-lg-9 p-5">
             <div class="card-right-content-container">
@@ -66,7 +63,7 @@ const creadDainameckCard = (data) => {
                     <div
                     class="othor-wraper d-flex justify-content-center align-items-center"
                     >
-                    <img src="${img}" alt="" />
+                    <img  src="${img}" alt="" />
                     <div class="othor-name ms-3">
                         <p class="m-0">${name}</p>
                         <p class="text-muted m-0">${date}</p>
@@ -101,5 +98,14 @@ const creadDainameckCard = (data) => {
         </div>
   `;
   cardContainer.appendChild(cardWraper);
+};
+const imgThamenlClick = async (id) => {
+  const idAllData = await allIdLodData(id);
+  const data = idAllData.data[0];
+  console.log(data);
+  const { author } = data;
+  console.log(author);
+
+  // console.log(id);
 };
 allDataLode();
