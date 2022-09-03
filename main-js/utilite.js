@@ -93,7 +93,7 @@ const spner = (bullin) => {
 
 const allDataLoat = async () => {
   spner(true);
-  const allData = await allCatagoriDataLodApi(01);
+  const allData = await allCatagoriDataLodApi();
   const cardContainer = document.getElementById("all-card-container");
   cardContainer.innerHTML = ``;
   allData.forEach((data) => {
@@ -160,15 +160,15 @@ const creadDainameckCard = (data) => {
   const NoData = "NO Data Abelable";
   cardWraper.classList.add("col-12");
   cardWraper.innerHTML = `
-  <div class="p-3 card-container bg-white">
+  <div class="p-3 card-container bg-white" onclick="imgThamenlClick('${_id}')"  alt="" data-bs-toggle="modal"
+  data-bs-target="#blog-modal-bodey">
   <div class="row">
       <div
       class="col-12 col-lg-3 card-content-left d-flex justify-content-center align-items-center"
       >
-      <img class="rounded-2" onclick="imgThamenlClick('${_id}')" src="${
-    thumbnail_url ? thumbnail_url : noFoundImg
-  }" alt="" data-bs-toggle="modal"
-      data-bs-target="#blog-modal-bodey" />
+      <img class="rounded-2"  src="${
+        thumbnail_url ? thumbnail_url : noFoundImg
+      }" />
       </div>
       <div class="col-12 col-lg-9 p-5">
       <div class="card-right-content-container">
