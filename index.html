@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="main-css/main.css" />
     <!-- main css link Ends hear   -->
   </head>
-  <body>
+  <body class="bg-light">
     <!-- header starts hear  -->
     <header id="web-header">
       <!-- navbar starts hear  -->
@@ -72,31 +72,60 @@
       <!-- navbar Ends  hear  -->
     </header>
     <!-- header Ends  hear  -->
-    <!-- catagori list starts hear  -->
-    <section>
-      <div class="catagori-list-container">
-        <ul class="d-flex justify-content-between align-items-center">
-          <li class="mb-md-3 mb-xl-0">Home</li>
-          <li class="mb-md-3 mb-xl-0">Breaking news</li>
-          <li class="mb-md-3 mb-xl-0">Regular news</li>
-          <li class="mb-md-3 mb-xl-0">International news</li>
-          <li class="mb-md-3 mb-xl-0">Sports</li>
-          <li class="mb-md-3 mb-xl-0" class="active">Entertainment</li>
-          <li class="mb-md-3 mb-xl-0">Culture</li>
-          <li class="mb-md-3 mb-xl-0">Arts</li>
-          <li class="mb-md-3 mb-xl-0">All news</li>
-        </ul>
-      </div>
-    </section>
-    <!-- catagori list Ends hear  -->
 
-    <!-- catagori list count starts hear  -->
-    <section>
-      <div class="catagori-list-cound-container py-3 ps-3 bg-white">
-        <h5>4 items found for category Entertainment</h5>
-      </div>
-    </section>
-    <!-- catagori list count Ends hear  -->
+    <main class="container">
+      <!-- catagori list starts hear  -->
+      <section>
+        <div class="catagori-list-container">
+          <ul class="d-flex justify-content-between align-items-center">
+            <li class="mb-md-3 mb-xl-0">Home</li>
+            <li class="mb-md-3 mb-xl-0">Breaking news</li>
+            <li class="mb-md-3 mb-xl-0">Regular news</li>
+            <li class="mb-md-3 mb-xl-0">International news</li>
+            <li class="mb-md-3 mb-xl-0">Sports</li>
+            <li class="mb-md-3 mb-xl-0" class="active">Entertainment</li>
+            <li class="mb-md-3 mb-xl-0">Culture</li>
+            <li class="mb-md-3 mb-xl-0">Arts</li>
+            <li class="mb-md-3 mb-xl-0">All news</li>
+          </ul>
+        </div>
+      </section>
+      <!-- catagori list Ends hear  -->
+
+      <!-- catagori list count starts hear  -->
+      <section>
+        <div class="catagori-list-cound-container py-3 ps-3 bg-white">
+          <h5>4 items found for category Entertainment</h5>
+        </div>
+      </section>
+      <!-- catagori list count Ends hear  -->
+
+      <!-- select section starts hear   -->
+      <section>
+        <div
+          class="select-container d-flex justify-content-between align-items-center flx-wrap"
+        >
+          <div class="select-wraper-left">
+            <label for="select-catagori">Sort By View:</label>
+            <select id="select-catagori">
+              <option selected value="Default">Default</option>
+              <option value="Today All News">Today All News</option>
+              <option value="Update News">Update News</option>
+            </select>
+          </div>
+          <div class="select-wraper-right">
+            <button class="btn btn-success select-btn" type="submit">
+              Button
+            </button>
+            <button type="button" class="btn btn-outline-success select-btn">
+              Trending
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- select section Ends hear   -->
+    </main>
 
     <!-- All script link  -->
     <script src="main-js/utilite.js"></script>
