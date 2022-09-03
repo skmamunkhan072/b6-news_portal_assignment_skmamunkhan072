@@ -34,24 +34,24 @@ const addBlogQustion = () => {
     </div>
   </div>
   <div class="accordion-item">
-    <h2 class="accordion-header" id="headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-      difference between filter and map and find and foreach in javascript
-      </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-          <p>forEach(), is used to execute the same code on every element in an array but does not change the array and it returns undefined.map() executes the same code on every element in an array and returns a new array with the updated elements.filter() checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria.The find() method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
-          </p>
-      </div>
-    </div>
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        difference between filter and map and find and foreach in javascript
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            <p>forEach(), is used to execute the same code on every element in an array but does not change the array and it returns undefined.map() executes the same code on every element in an array and returns a new array with the updated elements.filter() checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria.The find() method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
+            </p>
+        </div>
+  </div>
   <div class="accordion-item">
     <h2 class="accordion-header" id="collapseFoue">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFoue" aria-expanded="false" aria-controls="collapseFoue">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFoues" aria-expanded="false" aria-controls="collapseFoues">
       Why use template string?
       </button>
     </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="collapseFoue" data-bs-parent="#accordionExample">
+    <div id="collapseFoues" class="accordion-collapse collapse" aria-labelledby="collapseFoue" data-bs-parent="#accordionExample">
       <div class="accordion-body">
           <p>
           You can use template strings to write your string exactly how you want it to appear, without all the quotation marks and confusion. Template strings make it very easy to spot a missing space and make your string more readable.</p>
