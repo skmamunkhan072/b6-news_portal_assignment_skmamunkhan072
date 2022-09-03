@@ -114,7 +114,7 @@ const creadDainameckCard = (data) => {
                     <i class="fa-solid fa-arrow-right"></i>
                     </div>
                 </div>
-                <!-- </div> -->
+               </div>
                 </div>
             </div>
             </div>

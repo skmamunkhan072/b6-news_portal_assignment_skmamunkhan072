@@ -61,15 +61,7 @@ hr {
   opacity: 0.25;
   margin: 0;
 }
-/* navbar style Ends  */
-/* All catagori list style starts  */
-/* .catagori-list-container ul {
-  margin-top: 1.8rem;
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-} */
+/* catagori list  */
 .catagori-list-wraper {
   margin-top: 1.8rem;
   flex-wrap: wrap;
@@ -77,6 +69,7 @@ hr {
   justify-content: space-between;
   align-items: center;
 }
+
 .catagori-list-container ul li {
   list-style: none;
   color: #858585;
