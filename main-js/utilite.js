@@ -73,7 +73,7 @@ const allCatagoriDataLodApi = async (data) => {
   return allCatagori;
 };
 
-const catagoriAllData = async (id, modelId) => {
+const catagoriAllData = async (id) => {
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
   const res = await fetch(url);
   const data = await res.json();
@@ -253,4 +253,4 @@ const imgThamenlClick = async (id) => {
   `;
   spner(false);
 };
-allDataLoat(01);
+allDataLoat();
