@@ -14,9 +14,18 @@ const allDataLode = async () => {
     // console.log(data);
   });
 };
+const detailsText = (details) => {
+  console.log(details.length);
+  if (details.length > 550) {
+    const detail = details.slice(0, 500) + "...";
+    return detail;
+  } else {
+    return details;
+  }
+};
 // creat all card dainamic and disply  my website
 const creadDainameckCard = (data) => {
-  console.log(data);
+  // console.log(data);
   const {
     author,
     details,
@@ -27,9 +36,10 @@ const creadDainameckCard = (data) => {
     _id,
     total_view,
   } = data;
+  const para =
+    "lsdskdkf sldlsfs sdfsdlfjs sdlflsdlf jkjemlkjl hoavmkvha fhsknfj  ofaw ";
   const { name, published_date, img } = author;
   const date = published_date.slice(0, 10);
-
   const cardContainer = document.getElementById("all-card-container");
   const cardWraper = document.createElement("div");
   cardWraper.classList.add("col-12");
@@ -44,12 +54,8 @@ const creadDainameckCard = (data) => {
             <div class="col-12 col-lg-9 p-5">
             <div class="card-right-content-container">
                 <h4>${title}</h4>
-                <p>${details}</p>
-                <p class="mt-5">
-                Fancy some shopping deals? Check out these amazing
-                sales: Zara Black Friday, ASOS Black Friday, Missoma
-                Black Friday and Gucci Black Friday...
-                </p>
+                <p class="mb-5">${detailsText(details)}</p>
+
                 <div
                 class="othor-view-contant-wraper d-flex justify-content-between align-items-center row"
                 >
