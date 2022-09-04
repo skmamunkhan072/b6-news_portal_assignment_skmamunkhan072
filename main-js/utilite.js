@@ -287,15 +287,3 @@ const imgThamenlClick = async (id) => {
   `;
   spner(false);
 };
-
-// defold card dainamick display
-try {
-  const difoldVaue = async (id) => {
-    const difoldValue = await catagoriAllData(id);
-    allCardDisply(difoldValue);
-  };
-  difoldVaue("01");
-  creadDainameckCard();
-} catch (err) {
-  console.log(err.name);
-}
