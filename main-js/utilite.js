@@ -1,4 +1,4 @@
-// blog quistion
+// blog quistion function
 const addBlogQustion = () => {
   spner(true);
   const modal = document.getElementById("model-body");
@@ -64,24 +64,7 @@ const addBlogQustion = () => {
   spner(false);
 };
 
-// all data load api function
-const allCatagoriDataLodApi = async (data) => {
-  const url = `https://openapi.programming-hero.com/api/news/categories`;
-  const res = await fetch(url);
-  const allData = await res.json();
-  const allCatagori = allData.data.news_category;
-  return allCatagori;
-};
-
-const catagoriAllData = async (id) => {
-  const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
-  const res = await fetch(url);
-  const data = await res.json();
-  return data.data;
-  //
-};
-
-// apner function
+// spner function
 const spner = (bullin) => {
   const sharpContainer = document.getElementById("spner-container");
   if (bullin === true) {
@@ -91,19 +74,40 @@ const spner = (bullin) => {
   }
 };
 
-const allDataLoat = async () => {
-  spner(true);
-  const allData = await allCatagoriDataLodApi();
-  const cardContainer = document.getElementById("all-card-container");
-  cardContainer.innerHTML = ``;
-  allData.forEach((data) => {
-    catagoriList(data);
-  });
+// all data load api function
+const allCatagoriDataLodApi = async () => {
+  const url = `https://openapi.programming-hero.com/api/news/categories`;
+  const res = await fetch(url);
+  const allData = await res.json();
+  const allCatagori = allData.data.news_category;
+  return allCatagori;
+};
+// all catagori id and all data lode api
+const catagoriAllData = async (id) => {
+  const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  return data.data;
 };
 
-// cata gori list add dainamick
+try {
+  const allDataLoat = async () => {
+    spner(true);
+    const allData = await allCatagoriDataLodApi();
+    const cardContainer = document.getElementById("all-card-container");
+    cardContainer.innerHTML = ``;
+
+    allData.forEach((data) => {
+      catagoriList(data);
+    });
+  };
+  allDataLoat();
+} catch (err) {
+  console.log(err.name);
+}
+
+// catagori list add dainamick
 const catagoriList = (data) => {
-  console.log(data);
   const { category_id, category_name } = data;
   const catagoriContainer = document.getElementById("catagori-container");
   const catagoriList = document.createElement("div");
@@ -113,12 +117,17 @@ const catagoriList = (data) => {
   catagoriContainer.appendChild(catagoriList);
   spner(false);
 };
-
 // catagori list click get id
 const listId = async (id) => {
   spner(true);
   const catagoriData = await catagoriAllData(id);
-  const catagoriDataLength = catagoriData.length;
+  allCardDisply(catagoriData);
+};
+
+// All catagori card display function
+const allCardDisply = (allData) => {
+  const sortingAllData = SortingData(allData);
+  const catagoriDataLength = allData.length;
   const dataWorning = document.getElementById("data-worning");
   if (catagoriDataLength === 0) {
     dataWorning.classList.remove("d-none");
@@ -130,17 +139,40 @@ const listId = async (id) => {
   catagoriItem.innerText = catagoriDataLength;
   const cardContainer = document.getElementById("all-card-container");
   cardContainer.innerHTML = ``;
-  catagoriData.forEach((data) => {
+
+  sortingAllData.forEach((data) => {
     creadDainameckCard(data);
   });
 };
 
-// dete slice function
+// sorting Array data
+const SortingData = (data) => {
+  const NoSortingArray = [];
+  const sortingArray = [];
+  data.forEach((data) => {
+    if (data.total_view === null) {
+      NoSortingArray.push(data);
+    } else {
+      sortingArray.unshift(data);
+    }
+  });
+  sortingArray.sort((a, b) => {
+    return b.total_view - a.total_view;
+  });
+  NoSortingArray.forEach((data) => {
+    sortingArray.push(data);
+  });
+  // console.log(sortingArray);
+  return sortingArray;
+};
+
+// date slice function
 const dateSlice = (dat) => {
   const date = dat.slice(0, 10);
   return date;
 };
 
+// discription para slice  function
 const detailsText = (para) => {
   if (para.length > 550) {
     const textPara = para.slice(0, 500) + "...";
@@ -228,6 +260,7 @@ const creadDainameckCard = (data) => {
   spner(false);
 };
 
+// caard click function
 const imgThamenlClick = async (id) => {
   spner(true);
   const url = `https://openapi.programming-hero.com/api/news/${id}`;
@@ -254,4 +287,15 @@ const imgThamenlClick = async (id) => {
   `;
   spner(false);
 };
-allDataLoat();
+
+// defold card dainamick display
+try {
+  const difoldVaue = async (id) => {
+    const difoldValue = await catagoriAllData(id);
+    allCardDisply(difoldValue);
+  };
+  difoldVaue("01");
+  creadDainameckCard();
+} catch (err) {
+  console.log(err.name);
+}
